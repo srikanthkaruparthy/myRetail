@@ -1,10 +1,12 @@
 # myRetail
 
-###Setup
-*  Run 'npm install'
+###Installation
+*  $ git clone https://github.com/srikanthkaruparthy/myRetail.git [my-app-name]
+*  $ cd [my-app-name]
+*  $ npm install
 
 ###Run
-*  Run 'gulp default'
+*  $ gulp default
 
 ###Gulp tasks
 *  **default** runs tests and builds to dist folder
