@@ -1,146 +1,128 @@
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+  max-height: 60px;
+  border: 2px solid #cccccc;
+  border-radius: 3px;
+  background-color: #ffffff; }
+
 body {
-    font-family: Arial !important;
-}
+  font-family: Arial !important; }
 
 .product-comp-wrapper {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
+  margin-top: 20px;
+  margin-bottom: 20px; }
 
 .product-inline-separator {
-    margin-left: 20px;
-    margin-right: 20px;
-}
+  margin-left: 20px;
+  margin-right: 20px; }
 
 .top-buffer {
-    margin-top: 20px;
-}
+  margin-top: 20px; }
 
 .product-title {
-    text-align: center;
-    color: #000000;
-    font-size: 26px;
-    line-height: 30px;
-}
+  text-align: center;
+  color: #000000;
+  font-size: 26px;
+  line-height: 30px; }
 
 .product-price {
-    color: #000000;
-    font-size: 30px;
-    font-weight: 700;
-    line-height: 14px;
-}
+  color: #000000;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 14px; }
 
 .product-small {
-    color: #666666;
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 30px;
-}
+  color: #666666;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 30px; }
 
 .product-image {
-    margin: auto;
-}
+  margin: auto; }
 
 .product-separator {
-    height: 1px;
-    background-color: #cccccc;
-}
+  height: 1px;
+  background-color: #cccccc; }
 
 .product-offer {
-    color: #cc0000;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 32px;
-}
+  color: #cc0000;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 32px; }
 
 .product-quantity {
-    height: 40px;
-    width: 240px;
-    border: 1px solid #cccccc;
-    border-radius: 3px;
-    background-color: #ffffff;
-}
+  height: 40px;
+  width: 240px;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  background-color: #ffffff; }
 
 .product-quantity-label {
-    display: inline-block;
-    color: #333333;
-    font-weight: 400;
-    margin: 10px;
-    font-size: 12px;
-    line-height: 14px;
-}
+  display: inline-block;
+  color: #333333;
+  font-weight: 400;
+  margin: 10px;
+  font-size: 12px;
+  line-height: 14px; }
 
 .product-quantity-value {
-    margin: 5px;
-    line-height: 14px;
-    float: right;
-}
+  margin: 5px;
+  line-height: 14px;
+  float: right; }
 
 .product-quantity-widget {
-    margin: 2px 5px;
-}
+  margin: 2px 5px; }
 
 .btn-circle {
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    padding: 6px 0;
-    font-size: 12px;
-    line-height: 1.428571429;
-    border-radius: 15px;
-}
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px; }
 
 .product-returns {
-    display: table;
-}
+  display: table; }
 
 .product-returns-text {
-    padding-right: 10px;
-    vertical-align: middle;
-    display: table-cell;
-    color: #666666;
-    font-size: 20px;
-    line-height: 18px;
-}
+  padding-right: 10px;
+  vertical-align: middle;
+  display: table-cell;
+  color: #666666;
+  font-size: 20px;
+  line-height: 18px; }
 
 .horizontal-separator {
-    padding-left: 10px;
-    border-left: 1px solid #cccccc;
-    display: table-cell;
-    color: #666666;
-    font-size: 10px;
-    line-height: 14px;
-
-}
+  padding-left: 10px;
+  border-left: 1px solid #cccccc;
+  display: table-cell;
+  color: #666666;
+  font-size: 10px;
+  line-height: 14px; }
 
 .row-callout {
-    display: table-row;
-}
+  display: table-row; }
 
 .product-detail-label {
-    font-size: 28px;
-    color: black;
-}
+  font-size: 28px;
+  color: #000000; }
 
 .product-details {
-    padding-left: 15px;
-    margin-bottom: 20px;
-}
-
-.product-details > li {
-    font-size: 14px;
-}
-
-.carousel .item img {
-    margin: 0 auto; /* Align slide image horizontally center */
-}
+  padding-left: 15px;
+  margin-bottom: 20px; }
+  .product-details > li {
+    font-size: 14px; }
 
 .carousal-wrapper {
-    margin: 20px;
-}
+  margin: 20px; }
 
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
-    max-height: 60px; /* Set slide height here */
+.carousel-control.left {
+  background-image: none !important;
+  filter: none !important; }
 
-}
+.carousel-control.right {
+  background-image: none !important;
+  filter: none !important; }
+
+.carousel .item img {
+  margin: 0 auto; }

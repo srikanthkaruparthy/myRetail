@@ -1,6 +1,10 @@
-var api = angular.module('mockApi', ['ngMockE2E']);
+angular
+    .module('mockApi', ['ngMockE2E'])
+    .run(runBlock);
 
-api.run(function ($httpBackend) {
+runBlock.$inject = ['$httpBackend'];
+
+function runBlock($httpBackend) {
     var products = [
         {
             "CatalogEntryView": [
@@ -572,4 +576,10 @@ api.run(function ($httpBackend) {
             ]
         }];
     $httpBackend.whenGET('api/products/entry').respond(products["0"].CatalogEntryView);
-});
+
+    $httpBackend.whenPOST('api/products/add').respond(function (method, url, data) {
+        var product = angular.fromJson(data);
+        products.push(product);
+        return [200, products];
+    });
+}

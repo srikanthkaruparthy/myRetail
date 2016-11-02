@@ -1,5 +1,6 @@
 angular.module('myRetail')
-    .service('productService', ['$resource', function ($resource) {
-        $resource('api/products/entry');
-    }])
-;
+    .factory('productService', ProductService);
+ProductService.$inject = ['$resource'];
+function ProductService($resource) {
+    return $resource('api/products/entry');
+}

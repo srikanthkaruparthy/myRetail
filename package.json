@@ -1,0 +1,52 @@
+{
+  "name": "myretail",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "angular-aria": "^1.5.8",
+    "angular": "^1.5.8",
+    "angular-mocks": "^1.5.8",
+    "angular-resource": "^1.5.8",
+    "browser-sync": "^2.17.5",
+    "angular-sanitize": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "del": "^2.2.2",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-cache": "^0.4.5",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-if": "^2.0.1",
+    "gulp-imagemin": "^3.1.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-ruby-sass": "^2.1.0",
+    "gulp-server-livereload": "^1.9.1",
+    "gulp-scss": "^1.4.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^2.2.0",
+    "gulp-uglify": "^2.0.0",
+    "jquery": "^3.1.1",
+    "gulp-useref": "^3.1.2",
+    "gulp-webserver": "^0.9.1",
+    "run-sequence": "^1.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srikanthkaruparthy/myRetail.git"
+  },
+  "author": "Sri Kanth Karuparthy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srikanthkaruparthy/myRetail/issues"
+  },
+  "homepage": "https://github.com/srikanthkaruparthy/myRetail#readme"
+}

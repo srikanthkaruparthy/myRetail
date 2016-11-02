@@ -6,62 +6,68 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>My Retail</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!--build:css css/styles.min.css-->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="app/css/main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="node_modules/angular/angular.js"></script>
-    <script src="node_modules/angular-mocks/angular-mocks.js"></script>
-    <script src="node_modules/angular-aria/angular-aria.min.js"></script>
-    <script src="node_modules/angular-resource/angular-resource.min.js"></script>
-    <script src="node_modules/angular-sanitize/angular-sanitize.min.js"></script>
-    <script src="./app/js/app.module.js"></script>
-    <script src="./app/js/layout/product.controller.js"></script>
-    <script src="./app/js/services/product.services.js"></script>
+    <!--endbuild-->
 </head>
 
 <body ng-app="myRetail">
 <nav class="navbar" id="nav"></nav>
-<div class="container" ng-controller="myController">
+<div class="container" ng-controller="productController as product">
     <div class="row">
         <div class="col-md-6">
-            <div class="product-title">{{title}}</div>
-            <img class="product-image img-responsive" ng-src={{primaryImage}}>
-            <div class="carousal-wrapper" >
-                <div class="carousel slide" data-ride="carousel">
+            <!-- Product Title -->
+            <div class="product-title">{{product.title}}</div>
+            <!-- Product Image-->
+            <img class="product-image img-responsive" ng-src={{product.primaryImage}}>
+            <div class="carousal-wrapper">
+                <div id="productCarousel" class="carousel slide" data-ride="carousel">
                     <!-- Wrapper for carousel items -->
                     <div class="carousel-inner">
-                        <div class="item" ng-class="{active:!$index}" ng-repeat="photo in alternateImages">
+                        <div class="item" ng-class="{active:!$index}" ng-repeat="photo in product.alternateImages">
                             <img class="img-responsive" ng-src={{photo.image}}>
                         </div>
                     </div>
                     <!-- Carousel controls -->
-                    <a class="carousel-control left" href="#myCarousel" data-slide="prev"> <span
+                    <a class="carousel-control left" href="#productCarousel" data-slide="prev"> <span
                             class="glyphicon glyphicon-chevron-left"></span> </a>
-                    <a class="carousel-control right" href="#myCarousel" data-slide="next"> <span
+                    <a class="carousel-control right" href="#productCarousel" data-slide="next"> <span
                             class="glyphicon glyphicon-chevron-right"></span> </a>
                 </div>
             </div>
         </div>
-        <div class="col-md-6"> <span class="product-price">{{offers.formattedPriceValue}}
-                <small class="product-small"> {{offers.priceQualifier}}</small>
+        <!-- Product Price -->
+        <div class="col-md-6"> <span class="product-price">{{product.offers.formattedPriceValue}}
+                <small class="product-small"> {{product.offers.priceQualifier}}</small>
             </span>
             <div class="product-separator top-buffer"></div>
+            <!-- Product Promotions -->
             <div class="product-comp-wrapper">
-                <p class="product-offer" ng-repeat="promotion in promotions">
+                <p class="product-offer" ng-repeat="promotion in product.promotions">
                     {{promotion.Description["0"].shortDescription}}</p>
             </div>
             <div class="product-separator"></div>
+            <!-- Product Quantity -->
             <div class="product-quantity product-comp-wrapper"><span class="product-quantity-label">quantity:</span>
-                <span class="product-quantity-value"><button type="button" class="btn btn-circle btn-md">
+                <span class="product-quantity-value"><button type="button" ng-click="product.increment()"
+                                                             class="btn btn-circle btn-md">
                        <i class="glyphicon glyphicon-plus"></i>
-                        </button> 1 <button type="button" class="btn btn-circle btn-md">
+                        </button> {{product.quantity}} <button type="button" ng-click="product.decrement()"
+                                                               class="btn btn-circle btn-md">
                         <i class="glyphicon glyphicon-minus"></i></button>
                     </span></div>
+            <!-- Product Buttons -->
             <div class="product-comp-wrapper">
-                <button ng-if="purchasingChannel=='0'||purchasingChannel=='1'" type="button" class="btn btn-md">PICK UP IN STORE</button>
-                <button ng-if="purchasingChannel=='0'||purchasingChannel=='2'" type="button" class="btn btn-md">ADD TO CART</button>
+                <button ng-if="product.purchasingChannel=='0'||product.purchasingChannel=='1'" type="button" class="btn btn-md">PICK UP
+                    IN STORE
+                </button>
+                <button ng-if="product.purchasingChannel=='0'||product.purchasingChannel=='2'" type="button" class="btn btn-md">ADD TO
+                    CART
+                </button>
             </div>
+            <!-- Product Returns-->
             <div class="product-returns product-comp-wrapper">
                 <div class="row-callout"><span class="product-returns-text">returns</span>
                     <small class="horizontal-separator">This item must be returned within 30 days of the ship date. See
@@ -70,22 +76,40 @@
                     </small>
                 </div>
             </div>
+            <!-- Product Buttons-->
             <div class="product-comp-wrapper">
                 <button type="button" class="btn btn-xs">ADD TO REGISTRY</button>
                 <button type="button" class="btn btn-xs">ADD TO LIST</button>
                 <button type="button" class="btn btn-xs">SHARE</button>
             </div>
+            <!-- Product Highlights-->
             <div class="product-comp-wrapper"><span class="product-detail-label">product highlights</span>
                 <ul class="product-details">
-                    <li ng-repeat="feature in features" ng-bind-html="trustAsHtml(feature)"></li>
+                    <li ng-repeat="feature in product.features" ng-bind-html="product.trustAsHtml(feature)"></li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6"></div>
+        <div class="col-md-6">
+            <!-- Product Reviews-->
+            <!-- //TODO Design Reviews -->
+        </div>
     </div>
 </div>
+
+<!--build:js js/main.min.js -->
+<script src="node_modules/angular/angular.js"></script>
+<script src="node_modules/angular-mocks/angular-mocks.js"></script>
+<script src="node_modules/angular-aria/angular-aria.js"></script>
+<script src="node_modules/angular-resource/angular-resource.js"></script>
+<script src="node_modules/angular-sanitize/angular-sanitize.js"></script>
+<script src="app/js/app.module.js"></script>
+<script src="app/js/layout/product.controller.js"></script>
+<script src="app/js/services/product.services.js"></script>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- endbuild -->
 </body>
 
 </html>
