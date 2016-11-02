@@ -20,9 +20,9 @@
 
 
 ###Notes
-*  The angular app.module.js file loads up $httpBackend to mock a rest server for development.
+*  The angular app.module.js file loads up $httpBackend to mock a rest server and make uses of the JSON file.
 *  I just used Arial as the default font in the application.
 *  For responsive site I have used bootstrap classes which stacks up to the required specification when browsed in phone mode. 
-*  This was tested and developed on Chrome, Firefox and an iPhone 6 Simulator (iOS 8.3).  IE <9 was largely ignored.
+*  This was tested and developed on Chrome, Firefox.
 *  I followed John Papa's Angular Style guide throughout the project to make life easier for Angular 2 upgrade as a future enhancement.
 
