@@ -10,60 +10,46 @@
     <link rel="stylesheet" href="app/css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-mocks/angular-mocks.js"></script>
+    <script src="node_modules/angular-aria/angular-aria.min.js"></script>
+    <script src="node_modules/angular-resource/angular-resource.min.js"></script>
+    <script src="node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="./app/js/app.module.js"></script>
+    <script src="./app/js/layout/product.controller.js"></script>
+    <script src="./app/js/services/product.services.js"></script>
 </head>
 
-<body>
+<body ng-app="myRetail">
 <nav class="navbar" id="nav"></nav>
-<div class="container">
+<div class="container" ng-controller="myController">
     <div class="row">
         <div class="col-md-6">
-            <div class="product-title">Ninja™ Professional Blender with Single Serve Blending Cups</div>
-            <img class="product-image img-responsive"
-                 src="http:\/\/target.scene7.com\/is\/image\/Target\/14263758">
-            <div class="bs-example">
-                <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <div class="product-title">{{title}}</div>
+            <img class="product-image img-responsive" ng-src={{primaryImage}}>
+            <div class="carousal-wrapper" >
+                <div class="carousel slide" data-ride="carousel">
                     <!-- Wrapper for carousel items -->
                     <div class="carousel-inner">
-                        <div class="item active">
-                            <img class="img-responsive" src="http:\/\/target.scene7.com\/is\/image\/Target\/14263758_Alt01" alt="First Slide">
-                        </div>
-                        <div class="item">
-                            <img class="img-responsive" src="http:\/\/target.scene7.com\/is\/image\/Target\/14263758_Alt02" alt="Second Slide">
-                        </div>
-                        <div class="item">
-                            <img class="img-responsive" src="http:\/\/target.scene7.com\/is\/image\/Target\/14263758_Alt03" alt="Third Slide">
-                        </div>
-                        <div class="item">
-                            <img class="img-responsive" src="http:\/\/target.scene7.com\/is\/image\/Target\/14263758_Alt04" alt="Third Slide">
-                        </div>
-                        <div class="item">
-                            <img class="img-responsive" src="http:\/\/target.scene7.com\/is\/image\/Target\/14263758_Alt05" alt="Third Slide">
-                        </div>
-                        <div class="item">
-                            <img class="img-responsive" src="http:\/\/target.scene7.com\/is\/image\/Target\/14263758_Alt06" alt="Third Slide">
-                        </div>
-                        <div class="item">
-                            <img class="img-responsive" src="http:\/\/target.scene7.com\/is\/image\/Target\/14263758_Alt07" alt="Third Slide">
+                        <div class="item" ng-class="{active:!$index}" ng-repeat="photo in alternateImages">
+                            <img class="img-responsive" ng-src={{photo.image}}>
                         </div>
                     </div>
                     <!-- Carousel controls -->
-                    <a class="carousel-control left" href="#myCarousel" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                    </a>
-                    <a class="carousel-control right" href="#myCarousel" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                    </a>
+                    <a class="carousel-control left" href="#myCarousel" data-slide="prev"> <span
+                            class="glyphicon glyphicon-chevron-left"></span> </a>
+                    <a class="carousel-control right" href="#myCarousel" data-slide="next"> <span
+                            class="glyphicon glyphicon-chevron-right"></span> </a>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <span class="product-price">$139.00
-                <small class="product-small"> online price</small>
+        <div class="col-md-6"> <span class="product-price">{{offers.formattedPriceValue}}
+                <small class="product-small"> {{offers.priceQualifier}}</small>
             </span>
             <div class="product-separator top-buffer"></div>
             <div class="product-comp-wrapper">
-                <p class="product-offer">spend $50, ship free</p>
-                <p class="product-offer">$25 gift card with purchase of a select Ninja Blender</p>
+                <p class="product-offer" ng-repeat="promotion in promotions">
+                    {{promotion.Description["0"].shortDescription}}</p>
             </div>
             <div class="product-separator"></div>
             <div class="product-quantity product-comp-wrapper"><span class="product-quantity-label">quantity:</span>
@@ -73,15 +59,14 @@
                         <i class="glyphicon glyphicon-minus"></i></button>
                     </span></div>
             <div class="product-comp-wrapper">
-                <button type="button" class="btn btn-md">PICK UP IN STORE</button>
-                <button type="button" class="btn btn-md">ADD TO CART</button>
+                <button ng-if="purchasingChannel=='0'||purchasingChannel=='1'" type="button" class="btn btn-md">PICK UP IN STORE</button>
+                <button ng-if="purchasingChannel=='0'||purchasingChannel=='2'" type="button" class="btn btn-md">ADD TO CART</button>
             </div>
             <div class="product-returns product-comp-wrapper">
-                <div class="row-callout">
-                    <span class="product-returns-text">returns</span>
+                <div class="row-callout"><span class="product-returns-text">returns</span>
                     <small class="horizontal-separator">This item must be returned within 30 days of the ship date. See
-                        return policy for details.
-                        Prices, promotions, styles and availability may vary by store and online.
+                        return policy for details. Prices, promotions, styles and availability may vary by store and
+                        online.
                     </small>
                 </div>
             </div>
@@ -90,26 +75,15 @@
                 <button type="button" class="btn btn-xs">ADD TO LIST</button>
                 <button type="button" class="btn btn-xs">SHARE</button>
             </div>
-            <div class="product-comp-wrapper">
-                <span class="product-detail-label">product highlights</span>
+            <div class="product-comp-wrapper"><span class="product-detail-label">product highlights</span>
                 <ul class="product-details">
-                    <li>Wattage Output: 1100 Watts</li>
-                    <li>Number of Speeds: 3</li>
-                    <li>Capacity (volume): 72.0 Oz.</li>
-                    <li>Appliance Capabilities: Blends</li>
-                    <li>Includes: Travel Lid</li>
-                    <li>Material: Plastic</li>
-                    <li>Finish: Painted</li>
-                    <li>Metal Finish: Chrome</li>
-                    <li>Safety and Security Features: Non-Slip Base</li>
-                    <li>Care and Cleaning: Easy-To-Clean, Dishwasher Safe Parts</li>
+                    <li ng-repeat="feature in features" ng-bind-html="trustAsHtml(feature)"></li>
                 </ul>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
-        </div>
+        <div class="col-md-6"></div>
     </div>
 </div>
 </body>
