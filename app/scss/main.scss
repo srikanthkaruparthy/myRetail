@@ -20,52 +20,65 @@ $font_0: Arial !important;
   background-color: $white;
 }
 
-
 body {
   font-family: $font_0;
 }
+
 .product-comp-wrapper {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+
 .product-inline-separator {
   margin-left: 20px;
   margin-right: 20px;
 }
+
 .top-buffer {
   margin-top: 20px;
 }
+
+.right-buffer {
+  margin-right: 10px;
+}
+
 .product-title {
   text-align: center;
   color: $black;
   font-size: 26px;
   line-height: 30px;
 }
+
 .product-price {
   color: $black;
   font-size: 30px;
   font-weight: 700;
   line-height: 14px;
 }
+
 .product-small {
   color: $color_storm_dust_approx;
   font-size: 12px;
   font-weight: 400;
   line-height: 30px;
 }
+
 .product-image {
   margin: auto;
 }
+
 .product-separator {
   height: 1px;
   background-color: $color_celeste_approx;
 }
+
 .product-offer {
   color: $color_guardsman_red_approx;
   font-size: 18px;
   font-weight: 400;
   line-height: 32px;
 }
+
 .product-quantity {
   height: 40px;
   width: 240px;
@@ -74,6 +87,7 @@ body {
   border-radius: 3px;
   background-color: $white;
 }
+
 .product-quantity-label {
   display: inline-block;
   color: $color_mine_shaft_approx;
@@ -82,14 +96,17 @@ body {
   font-size: 12px;
   line-height: 14px;
 }
+
 .product-quantity-value {
   margin: 5px;
   line-height: 14px;
   float: right;
 }
+
 .product-quantity-widget {
   margin: 2px 5px;
 }
+
 .btn-circle {
   width: 30px;
   height: 30px;
@@ -97,12 +114,13 @@ body {
   padding: 6px 0;
   font-size: 12px;
   line-height: 1.428571429;
-  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
   border-radius: 15px;
 }
+
 .product-returns {
   display: table;
 }
+
 .product-returns-text {
   padding-right: 10px;
   vertical-align: middle;
@@ -111,6 +129,7 @@ body {
   font-size: 20px;
   line-height: 18px;
 }
+
 .horizontal-separator {
   padding-left: 10px;
   border-left: 1px solid $color_celeste_approx;
@@ -119,13 +138,16 @@ body {
   font-size: 10px;
   line-height: 14px;
 }
+
 .row-callout {
   display: table-row;
 }
+
 .product-detail-label {
   font-size: 28px;
   color: $black;
 }
+
 .product-details {
   padding-left: 15px;
   margin-bottom: 20px;
@@ -133,9 +155,11 @@ body {
     font-size: 14px;
   }
 }
+
 .carousal-wrapper {
   margin: 20px;
 }
+
 .carousel-control {
   &.left {
     background-image: none !important;
@@ -146,9 +170,11 @@ body {
     filter: none !important;
   }
 }
+
 .carousel .item img {
   margin: 0 auto;
 }
+
 .carousel-inner > .item {
   > img {
     @extend %extend_1;
@@ -156,4 +182,62 @@ body {
   > a > img {
     @extend %extend_1;
   }
+}
+
+.my-btn1 {
+  border-radius: 3px;
+  background-color: #000000;
+  color: #ffffff;
+  $background: #000000;
+  $color: #ffffff;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5);
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: $color;
+    background-color: lighten($background, 20%); //10% default
+  }
+
+}
+
+.my-btn2 {
+  border-radius: 3px;
+  background-color: #cc0000;
+  color: #ffffff;
+  $background: #cc0000;
+  $color: #ffffff;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.5);
+  &:hover,
+  &:focus,
+  &.focus,
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: $color;
+    background-color: lighten($background, 20%); //10% default
+  }
+
+}
+
+.rating {
+  color: #a9a9a9;
+  margin: 0;
+  padding: 0;
+}
+ul.rating {
+  display: inline-block !important;
+}
+.rating li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 1px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+.rating .filled {
+  color: red;
 }

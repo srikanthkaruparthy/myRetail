@@ -37,7 +37,7 @@ gulp.task('sass', function() {
 // Watchers
 gulp.task('watch', function() {
     gulp.watch('app/scss/**/*.scss', ['sass']);
-    gulp.watch('app/*.html', browserSync.reload);
+    gulp.watch('*.html', browserSync.reload);
     gulp.watch('app/js/**/*.js', browserSync.reload);
 });
 
@@ -47,10 +47,10 @@ gulp.task('watch', function() {
 // Optimizing CSS and JavaScript
 gulp.task('useref', function() {
 
-    return gulp.src('app/*.html')
+    return gulp.src('*.html')
         .pipe(useref())
-        .pipe(gulpIf('*.js', uglify()))
-        .pipe(gulpIf('*.css', cssnano()))
+        .pipe(gulpIf('app/js/**/*.js', uglify()))
+        .pipe(gulpIf('app/css/**/*.css', cssnano()))
         .pipe(gulp.dest('dist'));
 });
 

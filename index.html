@@ -21,20 +21,20 @@
             <!-- Product Title -->
             <div class="product-title">{{product.title}}</div>
             <!-- Product Image-->
-            <img class="product-image img-responsive" ng-src={{product.primaryImage}}>
+            <img class="product-image img-responsive" ng-src={{product.primaryImage}} alt="Primary Image">
             <div class="carousal-wrapper">
                 <div id="productCarousel" class="carousel slide" data-ride="carousel">
                     <!-- Wrapper for carousel items -->
                     <div class="carousel-inner">
                         <div class="item" ng-class="{active:!$index}" ng-repeat="photo in product.alternateImages">
-                            <img class="img-responsive" ng-src={{photo.image}}>
+                            <img class="img-responsive" ng-src={{photo.image}} alt="image{{$index}}">
                         </div>
                     </div>
                     <!-- Carousel controls -->
-                    <a class="carousel-control left" href="#productCarousel" data-slide="prev"> <span
-                            class="glyphicon glyphicon-chevron-left"></span> </a>
-                    <a class="carousel-control right" href="#productCarousel" data-slide="next"> <span
-                            class="glyphicon glyphicon-chevron-right"></span> </a>
+                    <a class="carousel-control left" href="#productCarousel" data-slide="prev"><img
+                            src="app/images/Arrow_Left.jpg" alt="Left Arrow" aria-label="Left Arrow"/></a>
+                    <a class="carousel-control right" href="#productCarousel" data-slide="next"><img
+                            src="app/images/Arrow_Right.jpg" alt="Right Arrow" aria-label="Right Arrow"/></a>
                 </div>
             </div>
         </div>
@@ -46,24 +46,28 @@
             <!-- Product Promotions -->
             <div class="product-comp-wrapper">
                 <p class="product-offer" ng-repeat="promotion in product.promotions">
-                    {{promotion.Description["0"].shortDescription}}</p>
+                    <img src="app/images/Vector_Smart_Object.jpg" class="right-buffer" alt="Bookmark"
+                         title="BookmarkImage"/>{{promotion.Description["0"].shortDescription}}
+                </p>
             </div>
             <div class="product-separator"></div>
             <!-- Product Quantity -->
             <div class="product-quantity product-comp-wrapper"><span class="product-quantity-label">quantity:</span>
-                <span class="product-quantity-value"><button type="button" ng-click="product.increment()"
-                                                             class="btn btn-circle btn-md">
+                <span class="product-quantity-value"><button type="button" aria-label="Plus" ng-click="product.increment()"
+                                                             class="btn btn-circle btn-md" value="plus" tabindex="0" role="button">
                        <i class="glyphicon glyphicon-plus"></i>
-                        </button> {{product.quantity}} <button type="button" ng-click="product.decrement()"
-                                                               class="btn btn-circle btn-md">
+                        </button> {{product.quantity}} <button type="button" aria-label="Minus" ng-click="product.decrement()"
+                                                               class="btn btn-circle btn-md" value="minus" tabindex="0" role="button">
                         <i class="glyphicon glyphicon-minus"></i></button>
                     </span></div>
             <!-- Product Buttons -->
             <div class="product-comp-wrapper">
-                <button ng-if="product.purchasingChannel=='0'||product.purchasingChannel=='1'" type="button" class="btn btn-md">PICK UP
+                <button ng-if="product.purchasingChannel=='0'||product.purchasingChannel=='1'" type="button"
+                        class="btn my-btn1 btn-md" value="pickUp" tabindex="0" role="button">PICK UP
                     IN STORE
                 </button>
-                <button ng-if="product.purchasingChannel=='0'||product.purchasingChannel=='2'" type="button" class="btn btn-md">ADD TO
+                <button ng-if="product.purchasingChannel=='0'||product.purchasingChannel=='2'" type="button"
+                        class="btn my-btn2 btn-md" value="addCart" tabindex="0" role="button">ADD TO
                     CART
                 </button>
             </div>
@@ -93,10 +97,33 @@
     <div class="row">
         <div class="col-md-6">
             <!-- Product Reviews-->
-            <!-- //TODO Design Reviews -->
+            <div class="jumbotron">
+                <div class="row">
+                    <div class="col-xs-6"><p>PROS</p></div>
+                    <div class="col-xs-6"><p>CONS</p></div>
+                </div>
+                <div class="product-separator"></div>
+                <div class="row top-buffer">
+                    <div class="col-xs-6">
+                        <div star-directive ng-model=product.reviews["0"].Pro["0"].overallRating max="5"></div>
+                        <div><strong>{{product.reviews["0"].Pro["0"].title}}</strong></div>
+                        <div>{{product.reviews["0"].Pro["0"].review}}</div>
+                        <div><a>{{product.reviews["0"].Pro["0"].screenName}}</a><span> {{product.reviews["0"].Pro["0"].datePosted | utcToLocal}}</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div star-directive ng-model=product.reviews["0"].Con["0"].overallRating max="5"></div>
+                        <div><strong>{{product.reviews["0"].Con["0"].title}}</strong></div>
+                        <div>{{product.reviews["0"].Con["0"].review}}</div>
+                        <div><a>{{product.reviews["0"].Con["0"].screenName}}</a><span> {{product.reviews["0"].Con["0"].datePosted | utcToLocal}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 
 <!--build:js js/main.min.js -->
 <script src="node_modules/angular/angular.js"></script>
