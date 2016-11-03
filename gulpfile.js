@@ -64,19 +64,6 @@ gulp.task('images', function() {
         .pipe(gulp.dest('dist/images'))
 });
 
-// Copying fonts
-gulp.task('fonts', function() {
-    return gulp.src('app/fonts/**/*')
-        .pipe(gulp.dest('dist/fonts'))
-});
-
-// Cleaning
-gulp.task('clean', function() {
-    return del.sync('dist').then(function(cb) {
-        return cache.clearAll(cb);
-    });
-});
-
 gulp.task('clean:dist', function() {
     return del.sync(['dist/**/*', '!dist/images', '!dist/images/**/*']);
 });
@@ -94,7 +81,7 @@ gulp.task('build', function(callback) {
     runSequence(
         'clean:dist',
         'sass',
-        ['useref', 'images', 'fonts'],
+        ['useref', 'images'],
         callback
     )
 });
