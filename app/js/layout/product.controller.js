@@ -60,7 +60,6 @@ function StarDirective() {
         link: function (scope, elem, attrs) {
             scope.stars = [];
             for (var i = 0; i < scope.max; i++) {
-                debugger;
                 scope.stars.push({
                     filled: i < scope.rating
                 });
